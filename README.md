@@ -12,8 +12,9 @@ FUCKir89 Infra repository
 ```
 Host someinternalhost
         HostName someinternalhost
-        ProxyJump appuser@35.241.232.29
+        ProxyJump appuser@34.77.197.102
         User appuser
+        IdentityFile ~/.ssh/appuser
 ```
 
 При такой настройке вводя команду `ssh someinternalhost` на своем компьютере Вы попадете на удаленную ВМ через бастион.
@@ -21,4 +22,4 @@ Host someinternalhost
 
 ## Данные для проверки cloud-bastion:
 
-bastion_IP = 35.241.232.29 someinternalhost_IP = 10.156.0.3
+bastion_IP = 34.77.197.102 someinternalhost_IP = 10.132.0.5
