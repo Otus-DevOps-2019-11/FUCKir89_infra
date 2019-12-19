@@ -19,5 +19,6 @@ Host someinternalhost
 При такой настройке вводя команду `ssh someinternalhost` на своем компьютере Вы попадете на удаленную ВМ через бастион.
 
 
-bastion_IP = 35.241.232.29
-someinternalhost_IP = 10.156.0.3
+## Данные для проверки cloud-bastion:
+
+bastion_IP = 35.241.232.29 someinternalhost_IP = 10.156.0.3
