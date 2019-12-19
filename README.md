@@ -12,8 +12,8 @@ FUCKir89 Infra repository
 ```
 Host someinternalhost
         HostName someinternalhost
-        ProxyJump semer-ilya@35.241.232.29
-        User semer-ilya
+        ProxyJump appuser@35.241.232.29
+        User appuser
 ```
 
 При такой настройке вводя команду `ssh someinternalhost` на своем компьютере Вы попадете на удаленную ВМ через бастион.
