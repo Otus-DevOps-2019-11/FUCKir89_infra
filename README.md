@@ -22,4 +22,5 @@ Host someinternalhost
 
 ## Данные для проверки cloud-bastion:
 
-bastion_IP = 34.77.197.102 someinternalhost_IP = 10.132.0.5
+bastion_IP = 34.77.197.102
+someinternalhost_IP = 10.132.0.5
