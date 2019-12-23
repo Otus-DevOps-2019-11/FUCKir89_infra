@@ -1,5 +1,5 @@
 #!/bin/bash
 #clone the repo
-git clone -b monolith https://github.com/express42/reddit.git /home/appuser/
+git clone -b monolith https://github.com/express42/reddit.git /home/appuser/soft/
 #install bundle
 cd /home/appuser/reddit && bundle install
