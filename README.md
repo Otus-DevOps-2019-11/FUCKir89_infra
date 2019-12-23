@@ -27,3 +27,5 @@ someinternalhost_IP = 10.132.0.5
 
 testapp_IP = 34.77.32.77
 testapp_port = 9292
+
+gcloud compute instances create reddit-app-2 --boot-disk-size=10GB --image-family ubuntu-1604-lts --image-project=ubuntu-os-cloud --machine-type=g1-small --tags puma-server --restart-on-failure --metadata="startup-script=curl -O http://semer-ilya.myjino.ru/startup.sh && chmod +x startup.sh && chmod 777 startup.sh && sudo -u appuser bash startup.sh"

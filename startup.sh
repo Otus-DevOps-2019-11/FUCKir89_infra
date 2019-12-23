@@ -7,5 +7,6 @@ sudo apt update
 sudo apt-get install -y mongodb-org
 sudo systemctl start mongod
 sudo systemctl enable mongod
-git clone -b monolith https://github.com/express42/reddit.git /home/appuser/soft/
-cd /home/appuser/soft/ && bundle install
+sudo -u appuser git clone -b monolith https://github.com/express42/reddit.git /home/appuser/soft/
+cd /home/appuser/soft/ && sudo -u appuser bundle install
+puma -d
