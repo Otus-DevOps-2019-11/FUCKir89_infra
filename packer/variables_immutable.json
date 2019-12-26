@@ -1,0 +1,9 @@
+{
+    "project_id": "infra-262408",
+    "disk_size": "12",
+    "disk_type": "pd-ssd",
+    "image_family": "reddit-full",
+    "image_description": "packerimages",
+    "tags": "packertag",
+    "network": "test"
+  }
