@@ -40,3 +40,18 @@ gcloud compute instances create reddit-app-2 --boot-disk-size=10GB --image-famil
 ```
 gcloud compute --project=infra-262408 firewall-rules create default-puma-server --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:9292 --source-ranges=0.0.0.0/0 --target-tags=puma-server
 ```
+
+## Готовая ВМ с приложением через Packer:
+
+1. Основной скрипт запуска: FUCKir89_infra/config-scripts/create-redditvm.sh
+В нем мы запускаем билд образа, созадаем из этого образа ВМ с приложением и создаем правило фаервола
+
+2. FUCKir89_infra/pascker/immutable.json - конфиг сборки образа
+
+3. FUCKir89_infra/packer/variables.json.example - пример переменных для сборки образа
+
+4. FUCKir89_infra/packer/variables.json и UCKir89_infra/packer/.gitignore - боевые переменные для сборки и файлик который не дает загружать в гит боевые переменные
+
+5. FUCKir89_infra/packer/scripts/install_daemon.sh - скрипт установки демона
+
+6. FUCKir89_infra/blob/packer-base/packer/files/puma.service - файл демона systemd
