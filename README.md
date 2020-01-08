@@ -55,3 +55,20 @@ gcloud compute --project=infra-262408 firewall-rules create default-puma-server 
 5. FUCKir89_infra/packer/scripts/install_daemon.sh - скрипт установки демона
 
 6. FUCKir89_infra/blob/packer-base/packer/files/puma.service - файл демона systemd
+
+
+## Перая домашка по Terraform:
+
+1. FUCKir89_infra/terraform/terraform.tfvars - файл с переменными (в гит залит для примера terraform.tfvars.example)
+2. FUCKir89_infra/terraform/main.tf - описание инстенса
+3. FUCKir89_infra/terraform/lb.tf - описание балансировщика
+4. FUCKir89_infra/terraform/outputs.tf - файл вывода данных
+5. FUCKir89_infra/terraform/variables.tf - объявление переменных
+
+Запускать так:
+```
+cd terraform && terraform apply -var-file="terraform.tfvars.example"
+```
+*после поднятия инфраструктуры на экран будет выведен адрес для подключения
+
+# Внимание! Все изменения внесенные не через Terraform при следующем деплое будут заьерты!
