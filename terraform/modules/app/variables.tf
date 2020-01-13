@@ -27,5 +27,5 @@ variable db_disk_image {
 }
 variable "db_reddit_ip" {
   description = "Reddit IP DB"
-  default = ""
+  default     = ""
 }

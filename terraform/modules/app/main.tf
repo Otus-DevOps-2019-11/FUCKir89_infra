@@ -19,9 +19,9 @@ resource "google_compute_instance" "app" {
     user  = "appuser"
     agent = false
     # путь до приватного ключа
-    privat_key = file(var.privat_key_path)
+    private_key = file(var.privat_key_path)
   }
-provisioner "remote-exec" {
+  provisioner "remote-exec" {
     inline = [
       "sudo echo DATABASE_URL=${var.db_reddit_ip} > /tmp/puma.env",
     ]
