@@ -27,7 +27,7 @@ resource "google_compute_instance" "db" {
     user  = "appuser"
     agent = false
     # путь до приватного ключа
-    private_key = file(var.privat_key_path)
+    privat_key = file(var.privat_key_path)
   }
 }
 resource "google_compute_address" "app_ip" {
