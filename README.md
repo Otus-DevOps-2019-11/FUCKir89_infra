@@ -76,5 +76,11 @@ cd terraform && terraform apply -var-file="terraform.tfvars.example"
 ## Вторая домашка по Terraform:
 
 Создано два окружкения ```stage``` и ```prod```.
+
 Для того чтоб "раскатать" ```stage``` надо перейти в папку ./terraform/stage/ и вы полнить в ней ```terraform apply```
+
 Для того чтоб "раскатать" ```prod``` надо перейти в папку ./terraform/prod/ и вы полнить в ней ```terraform apply```
+
+Так же подцеплены бакеты и настроено хранение в них стейтов.
+
+Что еще писать тут не знаю)
