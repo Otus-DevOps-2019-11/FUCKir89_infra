@@ -34,3 +34,10 @@ module "vpc" {
   db_disk_image   = var.db_disk_image
   source_ranges   = ["0.0.0.0/0"]
 }
+resource "template_file" "dynamic_inventory" {
+  template = file("dynamic_inventory.json")
+  vars = {
+    app_ext_ip = "${module.app.app_external_ip}"
+    db_ext_ip  = "${module.db.db_external_ip}"
+  }
+}
