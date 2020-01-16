@@ -30,9 +30,9 @@ resource "google_compute_instance" "db" {
     private_key = file(var.privat_key_path)
   }
 }
-resource "google_compute_address" "app_ip" {
-  name = "reddit-db-ip"
-}
+#resource "google_compute_address" "app_ip" {
+#  name = "reddit-db-ip"
+#}
 resource "google_compute_firewall" "firewall_mongo" {
   name    = "allow-mongo-default"
   network = "default"
