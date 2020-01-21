@@ -7,7 +7,7 @@
     - name: reload puma
       systemd: name=puma state=restarted
   vars:
-    db_host: 10.132.15.201
+    db_host: 10.132.15.207
   tasks:
 
     - name: Add unit file for Puma
