@@ -21,18 +21,18 @@ resource "google_compute_instance" "app" {
     # путь до приватного ключа
     private_key = file(var.privat_key_path)
   }
-  provisioner "remote-exec" {
-    inline = [
-      "sudo echo DATABASE_URL=${var.db_reddit_ip} > /tmp/puma.env",
-    ]
-  }
-  provisioner "file" {
-    source      = "files/puma.service"
-    destination = "/tmp/puma.service"
-  }
-  provisioner "remote-exec" {
-    script = "files/deploy.sh"
-  }
+#  provisioner "remote-exec" {
+#    inline = [
+#      "sudo echo DATABASE_URL=${var.db_reddit_ip} > /tmp/puma.env",
+#    ]
+#  }
+#  provisioner "file" {
+#    source      = "files/puma.service"
+#    destination = "/tmp/puma.service"
+#  }
+#  provisioner "remote-exec" {
+#    script = "files/deploy.sh"
+#  }
   metadata = {
     ssh-keys = "appuser:${file(var.public_key_path)}"
   }
