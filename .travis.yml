@@ -13,7 +13,7 @@ before_install:
 - sudo pip install -r ansible/requirements.txt
 - sudo wget https://releases.hashicorp.com/terraform/${terraform}/terraform_${terraform}_linux_amd64.zip -O /tmp/terraform.zip
 - sudo unzip -d /usr/local/bin/ /tmp/terraform.zip
-- sudo wget https://github.com/terraform-linters/tflint/releases/download/v${terraform_linter}/tflint_darwin_amd64.zip -O /tmp/tflint.zip
+- sudo wget https://github.com/terraform-linters/tflint/releases/download/v${terraform_linter}/tflint_linux_amd64.zip -O /tmp/tflint.zip
 - sudo unzip -d /usr/local/bin/ /tmp/tflint.zip
 script:
 - packer --version
@@ -22,8 +22,8 @@ script:
 - tflint --version
 - packer validate -var-file=packer/variables.json.example packer/app.json
 - packer validate -var-file=packer/variables.json.example packer/db.json
-- cd terraform/stage/ && terraform validate
-- cd terraform/prod/ && terraform validate
+- cd terraform/stage/ && terraform init && terraform validate
+- cd terraform/prod/ && terraform init && terraform validate
 notifications:
   slack:
     rooms:
