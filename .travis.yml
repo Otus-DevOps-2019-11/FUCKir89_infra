@@ -12,6 +12,7 @@ before_install:
 - sudo mv /usr/local/bin/packer /usr/local/bin/packer_old && sudo unzip -d /usr/local/bin/ /tmp/packer.zip
 script:
 - packer --version
+- pwd
 notifications:
   slack:
     rooms:
