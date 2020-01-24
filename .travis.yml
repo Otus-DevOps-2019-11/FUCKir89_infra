@@ -22,9 +22,12 @@ script:
 - tflint --version
 - packer validate -var-file=packer/variables.json.example packer/app.json
 - packer validate -var-file=packer/variables.json.example packer/db.json
-- cd terraform/stage/ && terraform init
-- pwd
-#- cd terraform/prod/ && terraform init && terraform validate
+- cp terraform/prod/terraform.tfvars.example terraform/prod/terraform.tfvars
+- cp terraform/stage/terraform.tfvars.example terraform/stage/terraform.tfvars
+- terraform get terraform/stage
+- find terraform/stage -type f -name '*.tf' -exec tflint --ignore-module=SweetOps/storage-bucket/google {} \;
+- terraform get terraform/prod
+- find terraform/prod -type f -name '*.tf' -exec tflint --ignore-module=SweetOps/storage-bucket/google {} \;
 notifications:
   slack:
     rooms:
