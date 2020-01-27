@@ -1,37 +1,37 @@
 dist: trusty
 sudo: required
 language: bash
-env:
-  global:
-  - terraform="0.12.19"
-  - terraform_linter="0.13.4"
+#env:
+#  global:
+#  - terraform="0.12.19"
+#  - terraform_linter="0.13.4"
 before_install:
 - curl https://raw.githubusercontent.com/express42/otus-homeworks/2019-11/run.sh |
   bash
-- sudo wget https://releases.hashicorp.com/packer/1.0.4/packer_1.0.4_linux_amd64.zip -O /tmp/packer.zip
-- sudo mv /usr/local/bin/packer /usr/local/bin/packer_old && sudo unzip -d /usr/local/bin/ /tmp/packer.zip
-- sudo pip install -r ansible/requirements.txt
-- sudo pip install ansible-lint
-- sudo wget https://releases.hashicorp.com/terraform/${terraform}/terraform_${terraform}_linux_amd64.zip -O /tmp/terraform.zip
-- sudo unzip -d /usr/local/bin/ /tmp/terraform.zip
-- sudo wget https://github.com/terraform-linters/tflint/releases/download/v${terraform_linter}/tflint_linux_amd64.zip -O /tmp/tflint.zip
-- sudo unzip -d /usr/local/bin/ /tmp/tflint.zip
-script:
-- packer --version
-- ansible --version
-- terraform --version
-- tflint --version
-- packer validate -var-file=packer/variables.json.example packer/app.json
-- packer validate -var-file=packer/variables.json.example packer/db.json
-- cp terraform/prod/terraform.tfvars.example terraform/prod/terraform.tfvars
-- cp terraform/stage/terraform.tfvars.example terraform/stage/terraform.tfvars
-- terraform get terraform/stage
-- find terraform/stage -type f -name '*.tf' -exec tflint --ignore-module=SweetOps/storage-bucket/google {} \;
-- terraform get terraform/prod
-- find terraform/prod -type f -name '*.tf' -exec tflint --ignore-module=SweetOps/storage-bucket/google {} \;
-- find ansible/playbooks/ -type f -name '*.yml' -exec ansible-lint {} \;
-- find ansible/roles/ -type f -name '*.yml' -exec ansible-lint {} \;
-- find ansible/environments/ -type f -name '*.yml' -exec ansible-lint {} \;
+#- sudo wget https://releases.hashicorp.com/packer/1.0.4/packer_1.0.4_linux_amd64.zip -O /tmp/packer.zip
+#- sudo mv /usr/local/bin/packer /usr/local/bin/packer_old && sudo unzip -d /usr/local/bin/ /tmp/packer.zip
+#- sudo pip install -r ansible/requirements.txt
+#- sudo pip install ansible-lint
+#- sudo wget https://releases.hashicorp.com/terraform/${terraform}/terraform_${terraform}_linux_amd64.zip -O /tmp/terraform.zip
+#- sudo unzip -d /usr/local/bin/ /tmp/terraform.zip
+#- sudo wget https://github.com/terraform-linters/tflint/releases/download/v${terraform_linter}/tflint_linux_amd64.zip -O /tmp/tflint.zip
+#- sudo unzip -d /usr/local/bin/ /tmp/tflint.zip
+#script:
+#- packer --version
+#- ansible --version
+#- terraform --version
+#- tflint --version
+#- packer validate -var-file=packer/variables.json.example packer/app.json
+#- packer validate -var-file=packer/variables.json.example packer/db.json
+#- cp terraform/prod/terraform.tfvars.example terraform/prod/terraform.tfvars
+#- cp terraform/stage/terraform.tfvars.example terraform/stage/terraform.tfvars
+#- terraform get terraform/stage
+#- find terraform/stage -type f -name '*.tf' -exec tflint --ignore-module=SweetOps/storage-bucket/google {} \;
+#- terraform get terraform/prod
+#- find terraform/prod -type f -name '*.tf' -exec tflint --ignore-module=SweetOps/storage-bucket/google {} \;
+#- find ansible/playbooks/ -type f -name '*.yml' -exec ansible-lint {} \;
+#- find ansible/roles/ -type f -name '*.yml' -exec ansible-lint {} \;
+#- find ansible/environments/ -type f -name '*.yml' -exec ansible-lint {} \;
 notifications:
   slack:
     rooms:
