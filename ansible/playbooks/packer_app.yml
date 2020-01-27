@@ -5,10 +5,3 @@
   tasks:
   - name: Update all packages to the latest version
     apt: "name='*' state=latest"
-
-  - name: Install ruby and rubygems and required packages
-    apt: "name={{ item }} state=present"
-    with_items:
-      - ruby-full
-      - ruby-bundler
-      - build-essential
