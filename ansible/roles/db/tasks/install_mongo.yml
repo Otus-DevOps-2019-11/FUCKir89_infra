@@ -1,6 +1,6 @@
 ---
-- name: Update all packages to the latest version
-  apt: "name='*' state=latest"
+- name: Update all packages to the present version
+  apt: "name='*' state=present"
   tags: install
 
 - name: Add APT key
