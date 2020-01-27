@@ -2,6 +2,5 @@
 - name: Install Ruby && Bundler
   hosts: app
   become: true
-  tasks:
-  - name: Update all packages to the latest version
-    apt: "name='*' state=latest"
+  roles:
+    - ansible/roles/app
